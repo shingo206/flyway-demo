@@ -31,5 +31,6 @@ public class Customer {
     @Size(max = 20)
     private String gender;
     @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_customer"))
     private List<Product> products;
 }

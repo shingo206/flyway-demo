@@ -27,7 +27,4 @@ public class Product {
     private int qty;
     @Min(0)
     private int price;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_customer"))
-    private Customer customer;
 }
