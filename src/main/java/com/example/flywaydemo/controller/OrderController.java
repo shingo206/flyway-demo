@@ -1,6 +1,7 @@
 package com.example.flywaydemo.controller;
 
 import com.example.flywaydemo.dto.OrderRequest;
+import com.example.flywaydemo.dto.OrderResponse;
 import com.example.flywaydemo.model.Customer;
 import com.example.flywaydemo.repository.CustomerRepository;
 import com.example.flywaydemo.repository.ProductRepository;
@@ -26,5 +27,10 @@ public class OrderController {
     @GetMapping("/findAllOrders")
     public List<Customer> findAllOrders() {
         return customerRepository.findAll();
+    }
+
+    @GetMapping("/getInfo")
+    public List<OrderResponse> getJoinInformation() {
+        return customerRepository.getJoinInformation();
     }
 }

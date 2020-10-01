@@ -22,15 +22,12 @@ public class Product {
     private int id;
     @NotBlank
     @Size(max = 50)
-    @JsonProperty
     private String productName;
     @Min(0)
-    @JsonProperty
     private int qty;
     @Min(0)
-    @JsonProperty
     private int price;
-    @ManyToOne(targetEntity = Customer.class, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_customer"))
     private Customer customer;
 }
