@@ -6,4 +6,11 @@ app:
 
 spring:
   jpa:
-    open-in-view: false
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
