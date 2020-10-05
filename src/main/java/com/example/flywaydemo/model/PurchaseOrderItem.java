@@ -1,8 +1,6 @@
 package com.example.flywaydemo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -10,7 +8,7 @@ import javax.validation.constraints.Min;
 
 @Entity
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class PurchaseOrderItem {
     @Id
@@ -25,7 +23,7 @@ public class PurchaseOrderItem {
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_product"))
     private Product product;
 
-    @Min(0)
-    @Max(999_999)
+    @Min(0) @Max(999_999)
+    @NonNull
     private int quantity;
 }
