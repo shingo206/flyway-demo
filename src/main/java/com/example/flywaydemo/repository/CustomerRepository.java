@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
+
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query("select new com.example.flywaydemo.dto.OrderResponse(c.name, p.productName) from Customer c join c.products p")
     List<OrderResponse> getJoinInformation();
