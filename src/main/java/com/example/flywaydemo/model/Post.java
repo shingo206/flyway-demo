@@ -1,29 +1,25 @@
 package com.example.flywaydemo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
-@ToString
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Exclude
     private int id;
-    @NotBlank
+    @NonNull
     private String title;
-    @NotBlank
+    @NonNull
     private String description;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "post_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_post"))
-    private List<Comment> comments;
-
+    private List<Comment> comments = new ArrayList<>();
 }
